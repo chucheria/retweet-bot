@@ -17,7 +17,7 @@ tweetLanguage = config.get("settings", "tweet_language")
 num = int(config.get("settings","number_of_rt"))
 
 # blacklisted users and words
-userBlacklist = []
+userBlacklist = ["tipsder"]
 wordBlacklist = ["RT", u"♺"]
 
 # build savepoint path + file
