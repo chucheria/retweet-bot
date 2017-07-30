@@ -5,16 +5,12 @@ import os, configparser, tweepy, inspect, hashlib
 
 path = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 
-# read config
-config = configparser.SafeConfigParser()
-config.read(os.path.join(path, "config"))
-
 # your hashtag or search query and tweet language (empty = all languages)
 hashtag = os.environ["SEARCH_QUERY"]
-tweetLanguage = config.get("settings", "tweet_language")
+tweetLanguage = os.environ["TWEET_LANGUAGE"]
 
 # Number retweets per time
-num = int(config.get("settings","number_of_rt"))
+num = int(os.environ["NUMBER_OF_RT"])
 
 # blacklisted users and words
 userBlacklist = ["tipsder"]
@@ -27,8 +23,8 @@ rt_bot_path = os.path.dirname(os.path.abspath(__file__))
 last_id_file = os.path.join(rt_bot_path, last_id_filename)
 
 # create bot
-auth = tweepy.OAuthHandler(config.get("twitter", "consumer_key"), config.get("twitter", "consumer_secret"))
-auth.set_access_token(config.get("twitter", "access_token"), config.get("twitter", "access_token_secret"))
+auth = tweepy.OAuthHandler(os.environ["TWITTER_CONSUMER_KEY"], os.environ["TWITTER_CONSUMER_SECRET"])
+auth.set_access_token(os.environ["TWITTER_ACCESS_TOKEN"], os.environ["TWITTER_ACCESS_TOKEN_SECRET"])
 api = tweepy.API(auth)
 
 # retrieve last savepoint if available
