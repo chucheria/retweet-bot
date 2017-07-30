@@ -10,7 +10,7 @@ config = configparser.SafeConfigParser()
 config.read(os.path.join(path, "config"))
 
 # your hashtag or search query and tweet language (empty = all languages)
-hashtag = config.get("settings", "search_query")
+hashtag = os.environ["SEARCH_QUERY"]
 tweetLanguage = config.get("settings", "tweet_language")
 
 # Number retweets per time
