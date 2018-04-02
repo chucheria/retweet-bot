@@ -13,7 +13,7 @@ tweetLanguage = os.environ["TWEET_LANGUAGE"]
 num = int(os.environ["NUMBER_OF_RT"])
 
 # blacklisted users and words
-userBlacklist = ["tipsder", "maximaformacion", "RosanaFerrero"]
+userBlacklist = ["tipsder", "maximaformacion", "RosanaFerrero", "maximaDataSci_R"]
 wordBlacklist = ["RT", u"♺"]
 
 # build savepoint path + file
